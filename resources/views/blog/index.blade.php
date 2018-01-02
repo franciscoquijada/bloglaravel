@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layouts.app')
 @section('index')
     <div class="container">
         <div class="row">
