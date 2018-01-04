@@ -15,4 +15,4 @@
     return view('blog.index');
 }); */
 
-Route::get('/','BlogController@index');
+Route::get('/','BlogController@index')->name('blog');
