@@ -13,9 +13,14 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $number_pages = 3;
+
     public function index()
     {
-        $posts = Post::all();
+        //$posts = Post::all();
+        //$posts = Post::with('author')->orderBy('created_at','asc')->get();
+       
+        $posts = Post::with('author')->latest()->paginate($this->number_pages);
 
         return view('blog.index',compact('posts'));
     }

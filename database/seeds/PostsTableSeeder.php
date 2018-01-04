@@ -19,6 +19,7 @@ class PostsTableSeeder extends Seeder
 
         for($i=0; $i<10 ;$i++)
         {
+            $date = date("Y-m-d H:i:s", strtotime("2018-04-01 08:00:00 + {$i} days"));
             $image = "Post_Image_".rand(1,5).".jpg";
             $posts[] = [
                 'author_id' => rand(1,3),
@@ -27,7 +28,9 @@ class PostsTableSeeder extends Seeder
                 'body' => "akldjadkjasdk adlkasjlkasjdkasdjasdlkajsdlasdlkasjd
                 aslkdjaskdjklasdjasjdlksadjksldlkasjdklasjd",
                 'slug' => $faker->slug(),
-                'image' => rand(0,1) == 1 ? $image : NULL
+                'image' => rand(0,1) == 1 ? $image : NULL,
+                'created_at' => $date,
+                'updated_at' => $date
             ];
         }
         DB::table('posts')->insert($posts);
